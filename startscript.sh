@@ -22,7 +22,7 @@
 #  GNU General Public License for more details.                            #
 #                                                                          #
 #  You should have received a copy of the GNU General Public License       #
-#  along with this program.  If not, see &lt;http://www.gnu.org/licenses/  #
+#  along with this program.  If not, see http://www.gnu.org/licenses/      #
 #                                                                          #
 #  Gebrauch: ./css.sh {start|stop|restart|update|console|check}            #
 #                                                                          #
