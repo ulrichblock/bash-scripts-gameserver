@@ -2,7 +2,7 @@
 
 ############################################################################
 #                                                                          #
-#  Counter-Strike Source/GO  and TF 2 (HL2) Server Script                  #
+#  Source Server Script                                                    #
 #                                                                          #
 #  Author:                                                                 #
 #  Ulrich Block                                                            #
@@ -24,14 +24,14 @@
 #  You should have received a copy of the GNU General Public License       #
 #  along with this program.  If not, see http://www.gnu.org/licenses/      #
 #                                                                          #
-#  Gebrauch: ./css.sh {start|stop|restart|update|console|check}            #
+#  Gebrauch: ./startscript.sh {start|stop|restart|update|console|check}    #
 #                                                                          #
-#  start/restart/stop: Server An und aus schalten                          #
+#  start/restart/stop: Server starten/stoppen/neustarten                   #
 #                                                                          #
-#  update: Mit dem Steam Updatetool den Server aktualisieren               #
+#  update: Mit der SteamCMD den Server aktualisieren                       #
 #                                                                          #
-#  console: Wechselt auf die Counter-Strike Serverkonsole                  #
-#        Mit strg+a + d die Konsole wieder in den Hintergrund schicken     #
+#  console: Wechselt auf die Source Server Konsole                         #
+#        Mit 'strg + a + d' die Konsole wieder in den Hintergrund schicken #
 #                                                                          #
 ############################################################################
 
@@ -63,8 +63,15 @@ MPLAYERS="20"
 # Startmap
 MAP="de_dust2"
 
-# Team Fortress 2 - tf, Counter-Strike: Source - cstrike, Counter-Strike: Global Offensive - csgo
+# Team Fortress 2 - tf
+# Counter-Strike: Source - cstrike
+# Counter-Strike: Global Offensive - csgo
+# Day of Defeat: Source - dods
+# Left 4 Dead 2 - left4dead2
+# Half Life 2: Deathmatch - hl2mp
 GAME="csgo"
+
+# Sollte GAME="CSGO" sein
 if [ "$GAME" == "csgo" ]; then
     # Dieser Teil ist nur fuer CS:GO
     GAMETYPE=0
@@ -72,6 +79,7 @@ if [ "$GAME" == "csgo" ]; then
     MAPGROUP="mg_bomb"
     TICK=66
     CSGO="-tickrate $TICK +game_type $GAMETYPE +game_mode $GAMEMODE +mapgroup $MAPGROUP "
+# Sollte GAME="CSGO" nicht sein
 else
     CSGO=""
 fi
@@ -145,6 +153,12 @@ function update_server {
 			./steamcmd.sh +login anonymous +app_update 232330 +force_install_dir $DIR validate +quit
 		elif  [ "$GAME" == "tf" ]; then
 			./steamcmd.sh +login anonymous +app_update 232250 +force_install_dir $DIR validate +quit
+		elif  [ "$GAME" == "dods" ]; then
+			./steamcmd.sh +login anonymous +app_update 232290 +force_install_dir $DIR validate +quit
+		elif  [ "$GAME" == "left4dead2" ]; then
+			./steamcmd.sh +login anonymous +app_update 222860 +force_install_dir $DIR validate +quit
+		elif  [ "$GAME" == "hl2mp" ]; then
+			./steamcmd.sh +login anonymous +app_update 232370 +force_install_dir $DIR validate +quit
 		else
 			echo "Falscher Wert fuer die Variable GAME!"
 		fi
