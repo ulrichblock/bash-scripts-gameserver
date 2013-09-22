@@ -51,17 +51,17 @@ PORT="PortvomServer"
 # Client Port des Servers
 CLIENTPORT="28000"
 
+# Source TV aktivieren
+SOURCETV=1
+
 # Falls SourceTV genutzt wird, wird der SourceTV Server auf diesem Port gestartet
-TVPT="29000"
+SOURCETVPORT="29000"
 
 # Slot Anzahl
 MPLAYERS="20"
 
 # Startmap
 MAP="de_dust2"
-
-# Source TV aktivieren
-SOURCETV=1
 
 # Team Fortress 2 - tf, Counter-Strike: Source - cstrike, Counter-Strike: Global Offensive - csgo
 GAME="Game"
@@ -76,7 +76,7 @@ else
     CSGO=""
 fi
 
-PARAMS="-game $GAME -ip $IP -port $PORT +tv_port $TVPT +clientport $CLIENTPORT +maxplayers $MPLAYERS +map $MAP +tv_enable $SOURCETV $CSGO"
+PARAMS="-game $GAME -ip $IP -port $PORT +tv_port $SOURCETVPORT +clientport $CLIENTPORT +maxplayers $MPLAYERS +map $MAP +tv_enable $SOURCETV $CSGO"
 
 SCREENNAME="css"
 
@@ -112,7 +112,7 @@ fi
 
 function start_server {
     if [[ `screen -ls | grep $SCREENNAME` ]]; then
-        echo "Der Server läuft bereits unter dem Screentab $SCREENNAME"
+        echo "Der Server lï¿½uft bereits unter dem Screentab $SCREENNAME"
     else
         echo "Starte $SCREENNAME"
         if [ -d $DIR ]; then
@@ -134,18 +134,18 @@ function stop_server {
     fi
 }
 
-function update_server {
-    stop_server
-    echo "Update"
-    cd $DIR
-    cd ..
-    ./steam -command update -game "Counter-Strike Source" -dir . -verify_all
-    echo " ... done."
-    start_server
-}
+#function update_server {
+#    stop_server
+#    echo "Update"
+#    cd $DIR
+#    cd ..
+#    ./steam -command update -game "Counter-Strike Source" -dir . -verify_all
+#    echo " ... done."
+#    start_server
+#}
 
 function wrong_input {
-    echo "Usage: $0 {start|stop|restart|update|console|check}"
+    echo "Usage: $0 {start|stop|restart|console|check}"
     exit 1
 }
 
@@ -190,9 +190,9 @@ case "$1" in
         start_server
     ;;
 
-    update)
-        update_server
-    ;;
+#    update)
+#        update_server
+#    ;;
 
     console)
         get_screen
