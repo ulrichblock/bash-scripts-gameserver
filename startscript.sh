@@ -51,17 +51,17 @@ PORT="PortvomServer"
 # Client Port des Servers
 CLIENTPORT="28000"
 
+# Source TV aktivieren
+SOURCETV=1
+
 # Falls SourceTV genutzt wird, wird der SourceTV Server auf diesem Port gestartet
-TVPT="29000"
+SOURCETVPORT="29000"
 
 # Slot Anzahl
 MPLAYERS="20"
 
 # Startmap
 MAP="de_dust2"
-
-# Source TV aktivieren
-SOURCETV=1
 
 # Team Fortress 2 - tf, Counter-Strike: Source - cstrike, Counter-Strike: Global Offensive - csgo
 GAME="csgo"
@@ -76,7 +76,7 @@ else
     CSGO=""
 fi
 
-PARAMS="-game $GAME -ip $IP -port $PORT +tv_port $TVPT +clientport $CLIENTPORT +maxplayers $MPLAYERS +map $MAP +tv_enable $SOURCETV $CSGO"
+PARAMS="-game $GAME -ip $IP -port $PORT +tv_port $SOURCETVPORT +clientport $CLIENTPORT +maxplayers $MPLAYERS +map $MAP +tv_enable $SOURCETV $CSGO"
 
 SCREENNAME="css"
 
@@ -112,7 +112,7 @@ fi
 
 function start_server {
     if [[ `screen -ls | grep $SCREENNAME` ]]; then
-        echo "Der Server läuft bereits unter dem Screentab $SCREENNAME"
+        echo "Der Server lï¿½uft bereits unter dem Screentab $SCREENNAME"
     else
         echo "Starte $SCREENNAME"
         if [ -d $DIR ]; then
@@ -146,7 +146,7 @@ function update_server {
 		elif  [ "$GAME" == "tf" ]; then
 			./steamcmd.sh +login anonymous +app_update 232250 +force_install_dir $DIR validate +quit
 		else
-			echo "Falscher Wert für die Variable GAME!"
+			echo "Falscher Wert fï¿½r die Variable GAME!"
 		fi
 		start_server
 	else
