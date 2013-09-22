@@ -112,7 +112,7 @@ fi
 
 function start_server {
     if [[ `screen -ls | grep $SCREENNAME` ]]; then
-        echo "Der Server l�uft bereits unter dem Screentab $SCREENNAME"
+        echo "Der Server laeuft bereits unter dem Screentab $SCREENNAME"
     else
         echo "Starte $SCREENNAME"
         if [ -d $DIR ]; then
@@ -146,7 +146,7 @@ function update_server {
 		elif  [ "$GAME" == "tf" ]; then
 			./steamcmd.sh +login anonymous +app_update 232250 +force_install_dir $DIR validate +quit
 		else
-			echo "Falscher Wert f�r die Variable GAME!"
+			echo "Falscher Wert fuer die Variable GAME!"
 		fi
 		start_server
 	else
