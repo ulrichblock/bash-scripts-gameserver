@@ -153,7 +153,7 @@ function update_server {
 			./steamcmd.sh +login anonymous +app_update 232330 +force_install_dir $DIR validate +quit
 		elif  [ "$GAME" == "tf" ]; then
 			./steamcmd.sh +login anonymous +app_update 232250 +force_install_dir $DIR validate +quit
-		elif  [ "$GAME" == "dods" ]; then
+		elif  [ "$GAME" == "dod" ]; then
 			./steamcmd.sh +login anonymous +app_update 232290 +force_install_dir $DIR validate +quit
 		elif  [ "$GAME" == "left4dead2" ]; then
 			./steamcmd.sh +login anonymous +app_update 222860 +force_install_dir $DIR validate +quit
