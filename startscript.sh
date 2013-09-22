@@ -52,7 +52,7 @@ PORT="PortvomServer"
 CLIENTPORT="28000"
 
 # Source TV aktivieren
-SOURCETV=1
+SOURCETV="1"
 
 # Falls SourceTV genutzt wird, wird der SourceTV Server auf diesem Port gestartet
 SOURCETVPORT="29000"
@@ -66,7 +66,7 @@ MAP="de_dust2"
 # Team Fortress 2 - tf
 # Counter-Strike: Source - cstrike
 # Counter-Strike: Global Offensive - csgo
-# Day of Defeat: Source - dods
+# Day of Defeat: Source - dod
 # Left 4 Dead 2 - left4dead2
 # Half Life 2: Deathmatch - hl2mp
 GAME="csgo"
