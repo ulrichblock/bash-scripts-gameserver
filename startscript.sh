@@ -64,7 +64,7 @@ MAP="de_dust2"
 SOURCETV=1
 
 # Team Fortress 2 - tf, Counter-Strike: Source - cstrike, Counter-Strike: Global Offensive - csgo
-GAME="Game"
+GAME="csgo"
 if [ "$GAME" == "csgo" ]; then
     # Dieser Teil ist nur fuer CS:GO
     GAMETYPE=0
@@ -135,13 +135,23 @@ function stop_server {
 }
 
 function update_server {
-    stop_server
-    echo "Update"
-    cd $DIR
-    cd ..
-    ./steam -command update -game "Counter-Strike Source" -dir . -verify_all
-    echo " ... done."
-    start_server
+	if [ -f ~/steamcmd.sh ]; then
+		stop_server
+		echo "Update"
+		cd
+		if [ "$GAME" == "csgo" ]; then
+			./steamcmd.sh +login anonymous +app_update 740 +force_install_dir $DIR validate +quit
+		elif  [ "$GAME" == "cstrike" ]; then
+			./steamcmd.sh +login anonymous +app_update 232330 +force_install_dir $DIR validate +quit
+		elif  [ "$GAME" == "tf" ]; then
+			./steamcmd.sh +login anonymous +app_update 232250 +force_install_dir $DIR validate +quit
+		else
+			echo "Falscher Wert für die Variable GAME!"
+		fi
+		start_server
+	else
+		echo "Konnte die Datei steamcmd.sh nicht im Homeverzeichnis finden!"
+	fi
 }
 
 function wrong_input {
