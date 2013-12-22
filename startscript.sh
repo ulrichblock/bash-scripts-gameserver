@@ -35,7 +35,7 @@
 #                                                                          #
 ############################################################################
 
-function init {
+
 # Absoluter Pfad zum Server
 DIR="/Verzeichnis/zum/Server"
 
@@ -87,6 +87,9 @@ fi
 PARAMS="-game $GAME -ip $IP -port $PORT +tv_port $SOURCETVPORT +clientport $CLIENTPORT +maxplayers $MPLAYERS +map $MAP +tv_enable $SOURCETV $CSGO"
 
 SCREENNAME="css"
+
+
+function init {
 
 if [ "`whoami`" = "root" ]; then
     echo "Verantwortungsvolle Admins starten Gameserver nicht mit root! Allen anderen ist es untersagt!"
