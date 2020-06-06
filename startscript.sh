@@ -8,7 +8,7 @@
 #  Ulrich Block                                                            #
 #                                                                          #
 #  Kontakt:                                                                #
-#  ulblock at gmx.de                                                       #
+#  ich@ulrich-block.de                                                     #
 #  www.ulrich-block.de                                                     #
 #                                                                          #
 #  This program is free software: you can redistribute it and/or modify    #
