@@ -4,7 +4,7 @@
 #                                                                          #
 #  Author: Ulrich Block                                                    #
 #                                                                          #
-#  Kontakt: ulblock@gmx.de                                                 #
+#  Kontakt: ich@ulrich-block.de                                            #
 #  www.ulrich-block.de                                                     #
 #                                                                          #
 #  This program is free software: you can redistribute it and/or modify    #
